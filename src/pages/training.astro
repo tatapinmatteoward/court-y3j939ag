@@ -1,0 +1,253 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Basketball Training: Elevate Your Game with Pro Drills and Tips";
+const pageDescription = "Dive into dynamic basketball training resources on HoopsHustle Daily. Discover expert drills, conditioning workouts, and skill-building strategies to boost your performance on the court.";
+
+const trainingDrills = [
+  {
+    id: 1,
+    title: "Shooting Drills: Precision Power",
+    description: "Master the art of the shot with our precision-focused drills. Improve your form, consistency, and confidence from every spot on the court.",
+    icon: "fas fa-basketball-ball"
+  },
+  {
+    id: 2,
+    title: "Dribbling Drills: Ball Control",
+    description: "Develop lightning-fast ball handling skills with our advanced dribbling routines. Perfect your moves under pressure and stay unpredictable.",
+    icon: "fas fa-hand-paper"
+  },
+  {
+    id: 3,
+    title: "Defense Drills: Lockdown Moves",
+    description: "Turn into a defensive force with our intensive defensive training. Learn positioning, footwork, and techniques to shut down opponents.",
+    icon: "fas fa-shield-alt"
+  },
+  {
+    id: 4,
+    title: "Conditioning Workouts: Endurance Boost",
+    description: "Build the stamina and strength needed for game-winning plays. Our conditioning routines enhance your power and agility.",
+    icon: "fas fa-heartbeat"
+  }
+];
+
+const benefits = [
+  {
+    title: "Skill Refinement",
+    description: "Sharpen your fundamentals and elevate your game to professional levels",
+    icon: "fas fa-trophy"
+  },
+  {
+    title: "Performance Edge",
+    description: "Gain the competitive advantage through targeted training methods",
+    icon: "fas fa-bolt"
+  },
+  {
+    title: "Injury Prevention",
+    description: "Learn proper mechanics to protect yourself on the court",
+    icon: "fas fa-user-md"
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  {/* Hero Section */}
+  <div class="relative bg-gradient-to-r from-[#FF6B35] to-[#00C8D7] py-24 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDIwIDIwIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIzIiBmaWxsPSIjMDAwIi8+PC9zdmc+')]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          Basketball Training: Elevate Your Game with Pro Drills and Tips
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 font-light">
+          Dive into dynamic basketball training resources on HoopsHustle Daily. Discover expert drills, conditioning workouts, and skill-building strategies to boost your performance on the court.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-white text-[#FF6B35] hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Start Training Now
+          </button>
+          <button class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-3 px-8 rounded-full text-lg transition-all duration-300">
+            View All Drills
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Intro Section */}
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Unlock Your Potential: Basketball Training Essentials
+        </h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#FF6B35]">
+          <p class="text-xl text-gray-700 mb-4">
+            <span class="font-bold text-[#FF6B35]">Ready to dominate the court?</span> At HoopsHustle Daily, we're all about that high-energy grind. Whether you're a budding baller or a seasoned pro, our training hub is packed with <span class="font-bold text-[#00C8D7]">bold, actionable insights</span> to sharpen your skills. From explosive dribbling to lockdown defense, let's hustle harder!
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+          <div class="text-[#FF6B35] text-4xl mb-4">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Why Training Matters in Basketball</h3>
+          <p class="text-gray-600">
+            Basketball isn't just talent—it's <span class="font-bold text-[#00C8D7]">relentless preparation</span>. Consistent training builds endurance, refines technique, and gives you that edge over the competition. Our guides draw from NBA pros and elite coaches to deliver results-driven advice.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-[#FF6B35] to-[#00C8D7] p-8 rounded-xl shadow-lg text-white transform transition-transform duration-300 hover:scale-105">
+          <div class="text-4xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Training Benefits</h3>
+          <ul class="space-y-2">
+            {benefits.map((benefit) => (
+              <li class="flex items-start">
+                <i class={`${benefit.icon} mt-1 mr-2`}></i>
+                <span><span class="font-bold">{benefit.title}:</span> {benefit.description}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 transform transition-transform duration-300 hover:scale-105">
+          <div class="text-[#00C8D7] text-4xl mb-4">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Proven Results</h3>
+          <p class="text-gray-600">
+            Our training methodologies have helped thousands of players improve their performance. From college recruits to professional athletes, our programs produce measurable results and lasting improvement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Drills Section */}
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Key Training Drills to Master</h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Here are some <span class="text-[#00C8D7] font-bold">dynamic drills</span> categorized by skill. Grab your ball and hit the gym!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {trainingDrills.map((drill) => (
+          <div key={drill.id} class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 shadow-xl border border-gray-700 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+            <div class="flex items-start">
+              <div class="text-[#FF6B35] text-3xl mr-4 mt-1">
+                <i class={drill.icon}></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold mb-3">{drill.title}</h3>
+                <p class="text-gray-300 mb-4">{drill.description}</p>
+                <button class="text-[#00C8D7] hover:text-[#FF6B35] font-semibold flex items-center">
+                  Learn More
+                  <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 text-center">
+        <button class="bg-gradient-to-r from-[#FF6B35] to-[#00C8D7] text-white font-bold py-4 px-12 rounded-full text-xl hover:from-[#00C8D7] hover:to-[#FF6B35] transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Download Full Training Guide
+        </button>
+      </div>
+    </div>
+  </section>
+
+  {/* Stats Section */}
+  <section class="py-16 bg-gradient-to-r from-[#00C8D7] to-[#FF6B35] text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-bold mb-2">10K+</div>
+          <div class="text-xl">Players Trained</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">24/7</div>
+          <div class="text-xl">Training Access</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">98%</div>
+          <div class="text-xl">Success Rate</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">50+</div>
+          <div class="text-xl">Expert Coaches</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Game?</h2>
+        <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+          Join thousands of players who've taken their basketball skills to the next level with our proven training methods
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="bg-[#FF6B35] hover:bg-[#00C8D7] text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Get Started Today
+          </button>
+          <button class="bg-white text-[#FF6B35] border-2 border-[#FF6B35] hover:bg-[#FF6B35] hover:text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300">
+            View Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .transform:hover {
+    transform: translateY(-5px);
+  }
+
+  .gradient-border {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #FF6B35, #00C8D7, #FF6B35);
+    z-index: -1;
+    border-radius: 12px;
+    animation: gradientShift 3s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-pattern {
+    background-image: radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.2) 1px, transparent 1px), 
+                      radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+</style>

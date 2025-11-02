@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "In-Depth Basketball Analysis";
+const pageDescription = "Dive into expert breakdowns of games, player performances, and strategic insights to elevate your hoops knowledge on HoopsHustle Daily.";
+
+const gameBreakdowns = [
+  {
+    id: 1,
+    title: "Lakers vs. Warriors Thriller",
+    summary: "LeBron's clutch triple-double seals the win! We analyze how Golden State's defense crumbled under pressure.",
+    category: "Game Breakdown"
+  },
+  {
+    id: 2,
+    title: "Celtics' Dominant Run",
+    summary: "Boston's three-point barrage – stats show they're on fire this season. Key takeaway: Their spacing is revolutionary!",
+    category: "Team Analysis"
+  },
+  {
+    id: 3,
+    title: "Nuggets' Defensive Surge",
+    summary: "Denver's elite defense stifles the opposition with new schemes. How they're changing the game.",
+    category: "Strategic Insight"
+  }
+];
+
+const playerSpotlights = [
+  {
+    id: 1,
+    name: "Ja Morant",
+    role: "Rising Star",
+    highlight: "Explosive dunks and playmaking wizardry. His impact? Game-changing.",
+    stat: "25.3 PPG"
+  },
+  {
+    id: 2,
+    name: "Luka Doncic",
+    role: "All-Star",
+    highlight: "Versatile scorer with unmatched court vision. The future of basketball.",
+    stat: "32.1 PPG"
+  },
+  {
+    id: 3,
+    name: "Sydney Johnson",
+    role: "Breakout Player",
+    highlight: "Defensive anchor who's redefining small forward play.",
+    stat: "18.7 RPG"
+  }
+];
+
+const trendingTopics = [
+  "Playoff Predictions",
+  "Rookie Rankings",
+  "Advanced Analytics",
+  "Trade Deadline Updates"
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  {/* Hero Section */}
+  <div class="relative bg-gradient-to-r from-[#FF6B35] via-[#FF8C5A] to-[#FF6B35] py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white text-[#FF6B35] px-4 py-1 rounded-full text-sm font-bold mb-4 animate-pulse">
+          NEW ANALYSIS
+        </span>
+        <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+          In-Depth Basketball <span class="text-[#00C8D7]">Analysis</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl">
+          Dive into expert breakdowns of games, player performances, and strategic insights to elevate your hoops knowledge on HoopsHustle Daily.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button class="bg-white text-[#FF6B35] font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+            Latest Breakdowns
+          </button>
+          <button class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-[#FF6B35] transition-all">
+            Subscribe Now
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
+  </div>
+
+  {/* Welcome Section */}
+  <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          <span class="text-[#FF6B35]">Ignite</span> your passion for basketball
+        </h2>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          At HoopsHustle Daily, we deliver the <span class="font-bold text-[#00C8D7]">dynamic edge</span> you need to stay ahead of the game. Whether it's dissecting the latest NBA showdown or forecasting playoff chaos, our analysis is your daily fuel for hoops obsession.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div class="bg-gradient-to-br from-[#FF6B35]/10 to-[#FF6B35]/5 p-8 rounded-2xl border border-[#FF6B35]/20 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-[#FF6B35] flex items-center justify-center mb-6">
+            <i class="fas fa-basketball-ball text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Game Breakdowns</h3>
+          <p class="text-gray-700">Deep dives into matchups, key moments, and tactical decisions that shape the outcome.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-[#00C8D7]/10 to-[#00C8D7]/5 p-8 rounded-2xl border border-[#00C8D7]/20 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-[#00C8D7] flex items-center justify-center mb-6">
+            <i class="fas fa-user-friends text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Player Insights</h3>
+          <p class="text-gray-700">Spotlight on rising stars, established legends, and undervalued performers.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-[#FF6B35]/10 to-[#FF6B35]/5 p-8 rounded-2xl border border-[#FF6B35]/20 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-[#FF6B35] flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Strategy Focus</h3>
+          <p class="text-gray-700">Advanced analytics, defensive schemes, and offensive innovations shaping the game.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Latest Breakdowns */}
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900">
+          Latest <span class="text-[#FF6B35]">Game Breakdowns</span>
+        </h2>
+        <a href="#" class="text-[#FF6B35] font-bold flex items-center hover:text-[#00C8D7] transition-colors">
+          View All <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {gameBreakdowns.map((game) => (
+          <div key={game.id} class="bg-gradient-to-br from-white to-gray-50 rounded-2xl overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="p-8">
+              <div class="flex justify-between items-start mb-4">
+                <span class="bg-[#00C8D7] text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {game.category}
+                </span>
+                <span class="text-gray-400 text-sm">2 hours ago</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">{game.title}</h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">{game.summary}</p>
+              <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                  <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-star text-yellow-500"></i>
+                  </div>
+                  <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-comment text-blue-500"></i>
+                  </div>
+                  <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-share text-green-500"></i>
+                  </div>
+                </div>
+                <button class="text-[#FF6B35] font-bold hover:text-[#00C8D7] transition-colors">
+                  Read Full Analysis →
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Player Spotlights */}
+  <section class="py-16 bg-gradient-to-br from-[#00C8D7]/5 to-[#FF6B35]/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          <span class="text-[#FF6B35]">Player</span> Spotlights
+        </h2>
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+          Rising stars, established legends, and game-changers who are reshaping the NBA landscape
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {playerSpotlights.map((player) => (
+          <div key={player.id} class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 group hover:shadow-2xl transition-all duration-300">
+            <div class="h-48 bg-gradient-to-r from-[#FF6B35] to-[#FF8C5A] relative">
+              <div class="absolute top-4 right-4 bg-white text-[#FF6B35] font-bold px-3 py-1 rounded-full">
+                {player.role}
+              </div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="text-2xl font-bold">{player.name}</h3>
+                <p class="text-sm opacity-90">{player.stat}</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-700 mb-6 italic">{player.highlight}</p>
+              <div class="flex justify-between items-center">
+                <div class="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <i key={i} class="fas fa-star text-yellow-400"></i>
+                  ))}
+                </div>
+                <button class="text-[#FF6B35] font-bold flex items-center hover:text-[#00C8D7] transition-colors">
+                  Full Profile <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Trending Topics */}
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Trending <span class="text-[#00C8D7]">Topics</span>
+        </h2>
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+          What's dominating the basketball conversation today
+        </p>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        {trendingTopics.map((topic, index) => (
+          <div key={index} class="group relative">
+            <div class="bg-gradient-to-r from-[#FF6B35] to-[#FF8C5A] text-white px-8 py-4 rounded-full font-bold text-lg transform transition-all duration-300 group-hover:scale-110 hover:shadow-lg">
+              {topic}
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#00C8D7] to-[#FF6B35] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="py-20 bg-gradient-to-r from-[#FF6B35] to-[#00C8D7]">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Ready to Elevate Your Basketball IQ?
+      </h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto mb-10">
+        Join thousands of basketball enthusiasts who trust HoopsHustle Daily for the most insightful analysis and breaking news.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-white text-[#FF6B35] font-bold px-10 py-4 rounded-full text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+          Get Instant Access
+        </button>
+        <button class="border-2 border-white text-white font-bold px-10 py-4 rounded-full text-lg hover:bg-white hover:text-[#FF6B35] transition-all">
+          Free Trial
+        </button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>

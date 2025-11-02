@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Game Recaps";
+const pageDescription = "Dive into detailed breakdowns of recent basketball games, blending advanced analytics with compelling narratives to highlight key moments and player performances.";
+const highlights = [
+  {
+    id: 1,
+    title: "Lakers vs. Warriors: A Clash of Titans",
+    excerpt: "In a high-stakes Western Conference showdown, the Lakers edged out the Warriors 112-108. LeBron James dominated the final quarter with a 15-point surge.",
+    score: "112-108",
+    teams: ["LAL", "GSW"],
+    date: "2023-04-15"
+  },
+  {
+    id: 2,
+    title: "Celtics Triumph Over Nets in Overtime",
+    excerpt: "Boston's defense proved decisive in a thrilling 109-106 victory. Jayson Tatum's 39 points and 12 rebounds were instrumental in the win.",
+    score: "109-106",
+    teams: ["BOS", "BKN"],
+    date: "2023-04-14"
+  },
+  {
+    id: 3,
+    title: "Heat Stuns Lakers in Battle of Legends",
+    excerpt: "Miami's relentless fast-break offense overwhelmed LA in a 121-114 victory. Jimmy Butler led a 40-point performance in the decisive fourth quarter.",
+    score: "121-114",
+    teams: ["MIA", "LAL"],
+    date: "2023-04-13"
+  }
+];
+const features = [
+  {
+    icon: "fas fa-chart-line",
+    title: "Advanced Metrics",
+    description: "Explore player efficiency ratings, shot charts, and pace-adjusted stats to understand what truly drove the outcome."
+  },
+  {
+    icon: "fas fa-book-open",
+    title: "Narrative Depth",
+    description: "Relive dramatic comebacks, clutch plays, and turning points through vivid, data-backed stories."
+  },
+  {
+    icon: "fas fa-user-tie",
+    title: "Expert Analysis",
+    description: "Written by analytics enthusiasts who blend numbers with the passion of the game."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-br from-primary to-accent-dark py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMCAwaDYwdjYwSDB6IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==')]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Game Recaps</h1>
+        <p class="text-xl text-primary-light mb-8">Dive into detailed breakdowns of recent basketball games, blending advanced analytics with compelling narratives to highlight key moments and player performances.</p>
+        <div class="inline-flex items-center space-x-2 bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-3 text-white">
+          <i class="fas fa-star"></i>
+          <span class="font-medium">Unlocking Basketball Excellence Through Analytics and Stories</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Read Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why Read Our Recaps?</h2>
+        <div class="w-24 h-1 bg-accent mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div key={index} class="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <div class="w-16 h-16 rounded-full bg-accent-light flex items-center justify-center mb-6">
+              <i class={`${feature.icon} text-2xl text-primary`}></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Highlights -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Recent Highlights</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Explore the most compelling matchups and standout performances from the latest games</p>
+        <div class="w-24 h-1 bg-accent mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {highlights.map((highlight) => (
+          <div key={highlight.id} class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <span class="inline-block bg-accent-light text-primary text-xs font-semibold px-3 py-1 rounded-full">
+                  {highlight.date}
+                </span>
+                <span class="bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                  {highlight.score}
+                </span>
+              </div>
+              
+              <h3 class="text-xl font-bold text-primary mb-3">{highlight.title}</h3>
+              <p class="text-gray-600 mb-4">{highlight.excerpt}</p>
+              
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-accent flex items-center justify-center mr-3">
+                    <span class="text-xs font-bold text-primary">{highlight.teams[0]}</span>
+                  </div>
+                  <span class="text-sm font-medium text-gray-700">vs</span>
+                  <div class="w-10 h-10 rounded-full bg-gray-200 border-2 border-accent flex items-center justify-center ml-3">
+                    <span class="text-xs font-bold text-primary">{highlight.teams[1]}</span>
+                  </div>
+                </div>
+                <button class="text-accent hover:text-accent-dark font-medium flex items-center">
+                  Read More
+                  <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats & Insights -->
+  <section class="py-16 bg-gradient-to-r from-primary to-accent-dark text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Data-Driven Insights</h2>
+          <p class="text-primary-light mb-6 text-lg">Our analytics team dives deep into every game to uncover meaningful patterns and player performance metrics that elevate the fan experience.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+              <span>Player efficiency ratings and usage percentages</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+              <span>Shot chart analysis and positioning data</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+              <span>Pace-adjusted statistics across matchups</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+              <span>Defensive impact measurements</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold">Performance Overview</h3>
+            <span class="bg-accent-light text-primary text-xs font-bold px-3 py-1 rounded-full">Last 7 Days</span>
+          </div>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Player Efficiency Rating (PER)</span>
+                <span class="font-bold">26.4</span>
+              </div>
+              <div class="w-full bg-primary-light bg-opacity-20 rounded-full h-2">
+                <div class="bg-accent h-2 rounded-full" style="width: 78%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Field Goal %</span>
+                <span class="font-bold">48.7%</span>
+              </div>
+              <div class="w-full bg-primary-light bg-opacity-20 rounded-full h-2">
+                <div class="bg-accent h-2 rounded-full" style="width: 82%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Assist-to-Turnover Ratio</span>
+                <span class="font-bold">2.4</span>
+              </div>
+              <div class="w-full bg-primary-light bg-opacity-20 rounded-full h-2">
+                <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Points Per Game</span>
+                <span class="font-bold">112.3</span>
+              </div>
+              <div class="w-full bg-primary-light bg-opacity-20 rounded-full h-2">
+                <div class="bg-accent h-2 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Stay Ahead of the Game</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">Join our community of basketball analysts and fans who rely on our comprehensive recaps for deeper insights.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-primary text-white font-bold px-8 py-4 rounded-lg hover:bg-accent transition-colors duration-300">
+          Subscribe to Recaps
+        </button>
+        <button class="border-2 border-primary text-primary font-bold px-8 py-4 rounded-lg hover:bg-primary hover:text-white transition-colors duration-300">
+          View All Games
+        </button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .bg-accent-dark {
+    background-color: #0A1A2F;
+  }
+  
+  .bg-primary-light {
+    background-color: #A8E6CF;
+  }
+  
+  .text-primary-light {
+    color: #A8E6CF;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .hero-pattern {
+    background-image: linear-gradient(rgba(10, 26, 47, 0.8), rgba(10, 26, 47, 0.8)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMCAwaDYwdjYwSDB6IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==');
+    background-size: 20px 20px;
+  }
+</style>

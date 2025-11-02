@@ -1,0 +1,204 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Team Stats - CourtVision Insights";
+const pageDescription = "Explore detailed basketball team statistics, including scoring, defense, rebounds, and advanced analytics to uncover insights into performance and strategies.";
+const teams = [
+  { name: "Golden State Warriors", ppg: 118.4, fg: 49.2, efg: 55.1, pa: 107.2, oppFg: 44.3, steals: 8.9, rebounds: 44.2, wins: 39 },
+  { name: "Miami Heat", ppg: 112.8, fg: 46.7, efg: 52.4, pa: 104.1, oppFg: 42.8, steals: 8.2, rebounds: 46.7, wins: 32 },
+  { name: "Milwaukee Bucks", ppg: 115.6, fg: 47.9, efg: 54.2, pa: 109.3, oppFg: 45.1, steals: 7.8, rebounds: 48.3, wins: 34 },
+  { name: "Boston Celtics", ppg: 110.9, fg: 45.8, efg: 51.7, pa: 106.7, oppFg: 43.5, steals: 9.1, rebounds: 45.6, wins: 31 },
+  { name: "Denver Nuggets", ppg: 114.3, fg: 48.1, efg: 53.9, pa: 108.5, oppFg: 44.7, steals: 8.5, rebounds: 47.1, wins: 33 },
+  { name: "Los Angeles Lakers", ppg: 109.7, fg: 44.9, efg: 50.3, pa: 107.8, oppFg: 43.2, steals: 7.6, rebounds: 44.8, wins: 28 }
+];
+
+const metrics = [
+  {
+    title: "Scoring Efficiency",
+    description: "Average points per game (PPG), field goal percentage (FG%), and effective field goal percentage (EFG%)",
+    icon: "<i class='fas fa-basketball-ball text-accent'></i>"
+  },
+  {
+    title: "Defensive Prowess",
+    description: "Points allowed per game, opponent FG%, and steal/turnover ratios",
+    icon: "<i class='fas fa-shield-alt text-accent'></i>"
+  },
+  {
+    title: "Rebounding Dominance",
+    description: "Total rebounds per game and offensive/defensive rebounding rates",
+    icon: "<i class='fas fa-database text-accent'></i>"
+  },
+  {
+    title: "Advanced Analytics",
+    description: "Plus-minus ratings, player efficiency ratings, and strategic impact metrics",
+    icon: "<i class='fas fa-chart-line text-accent'></i>"
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-br from-primary to-[#0D2A4A] text-white py-24 overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(168,230,207,0.1)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-block px-4 py-1 bg-accent/20 text-accent rounded-full mb-4 text-sm font-medium">Analytics Dashboard</span>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Team Stats</h1>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl">Unlock the pulse of your favorite basketball teams with in-depth statistical analysis and performance insights</p>
+        <div class="flex flex-wrap gap-4">
+          <button class="px-6 py-3 bg-accent hover:bg-[#89c9b4] text-primary font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center">
+            <i class="fas fa-search mr-2"></i> Explore Teams
+          </button>
+          <button class="px-6 py-3 bg-transparent border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-lg transition-all duration-300">
+            <i class="fas fa-chart-bar mr-2"></i> Advanced Reports
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Overview -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Team Performance Deep Dive</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">At CourtVision Insights, we blend raw data with analytical storytelling to reveal what drives success on the court</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {metrics.map((metric, index) => (
+          <div key={index} class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-[#0A1A2F]/10 flex items-center justify-center mb-4">
+              <div class="text-xl" dangerouslySetInnerHTML={{ __html: metric.icon }}></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">{metric.title}</h3>
+            <p class="text-gray-600">{metric.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Comparison Grid -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Top Performers</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Compare key metrics across elite teams and identify strategic advantages</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-xl shadow-lg overflow-hidden">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="py-5 px-6 text-left font-semibold">Team</th>
+              <th class="py-5 px-6 text-center font-semibold">PPG</th>
+              <th class="py-5 px-6 text-center font-semibold">FG%</th>
+              <th class="py-5 px-6 text-center font-semibold">eFG%</th>
+              <th class="py-5 px-6 text-center font-semibold">PA/G</th>
+              <th class="py-5 px-6 text-center font-semibold">Opp FG%</th>
+              <th class="py-5 px-6 text-center font-semibold">Steals</th>
+              <th class="py-5 px-6 text-center font-semibold">Rebounds</th>
+              <th class="py-5 px-6 text-center font-semibold">Wins</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map((team, index) => (
+              <tr key={index} class={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-accent/5`}>
+                <td class="py-4 px-6 font-medium text-primary">{team.name}</td>
+                <td class="py-4 px-6 text-center">{team.ppg}</td>
+                <td class="py-4 px-6 text-center">{team.fg}%</td>
+                <td class="py-4 px-6 text-center">{team.efg}%</td>
+                <td class="py-4 px-6 text-center">{team.pa}</td>
+                <td class="py-4 px-6 text-center">{team.oppFg}%</td>
+                <td class="py-4 px-6 text-center">{team.steals}</td>
+                <td class="py-4 px-6 text-center">{team.rebounds}</td>
+                <td class="py-4 px-6 text-center font-bold">{team.wins}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 mb-4">Want to explore deeper insights?</p>
+        <button class="px-6 py-3 bg-primary hover:bg-[#081425] text-white font-semibold rounded-lg transition-all duration-300 flex items-center mx-auto">
+          <i class="fas fa-download mr-2"></i> Download Full Report
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Insights Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-[#0D2A4A] text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Performance Insights</h2>
+        <p class="text-xl text-gray-200">Data-driven stories that separate good teams from great ones</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl font-bold text-accent mb-4">2.8x</div>
+          <h3 class="text-xl font-bold mb-2">Scoring Efficiency</h3>
+          <p class="text-gray-200">Teams with higher effective field goal percentages score 2.8 times more efficiently than their opponents</p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl font-bold text-accent mb-4">14.2%</div>
+          <h3 class="text-xl font-bold mb-2">Defensive Advantage</h3>
+          <p class="text-gray-200">Each 1% improvement in opponent field goal percentage correlates with a 14.2% increase in defensive effectiveness</p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-4xl font-bold text-accent mb-4">3.1</div>
+          <h3 class="text-xl font-bold mb-2">Rebound Dominance</h3>
+          <p class="text-gray-200">Teams outrebounding opponents by 3+ boards per game win 3.1 times as often</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Ready to Transform Your Analysis?</h2>
+        <p class="text-gray-600 mb-10 text-lg">Join thousands of coaches, analysts, and fans who rely on CourtVision Insights for their data-driven decisions</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="px-8 py-4 bg-primary hover:bg-[#081425] text-white font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
+            <i class="fas fa-user-plus mr-2"></i> Get Started Free
+          </button>
+          <button class="px-8 py-4 bg-accent hover:bg-[#89c9b4] text-primary font-semibold rounded-lg transition-all duration-300 border border-accent">
+            <i class="fas fa-book mr-2"></i> View Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(168, 230, 207, 0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(168, 230, 207, 0.05) 0%, transparent 20%);
+  }
+  
+  .hover\:transform:hover {
+    transform: translateY(-4px);
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
